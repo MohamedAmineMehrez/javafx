@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1225.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Afficher_pFXMLController">
+   <children>
+      <AnchorPane layoutX="7.0" layoutY="8.0" prefHeight="786.0" prefWidth="1213.0">
+         <children>
+            <TableView fx:id="tableview" layoutY="182.0" prefHeight="572.0" prefWidth="1213.0">
+              <columns>
+                <TableColumn fx:id="nomC" prefWidth="216.0" sortType="DESCENDING" text="NOM" />
+                  <TableColumn fx:id="qteC" prefWidth="189.0" text="QUANTITE" />
+                  <TableColumn fx:id="prixC" prefWidth="235.0" text="PRIX" />
+                  <TableColumn fx:id="descC" prefWidth="302.0" text="DESCRIPTION" />
+                  <TableColumn fx:id="catC" minWidth="0.0" prefWidth="236.0" text="CATEGORIE" />
+              </columns>
+            </TableView>
+            <Text layoutX="34.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LISTE DES PRODUITS">
+               <font>
+                  <Font name="Calibri Light Italic" size="33.0" />
+               </font>
+            </Text>
+            <Button fx:id="modifier" layoutX="265.0" layoutY="100.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="33.0" prefWidth="96.0" text="MODIFIER" />
+            <Button layoutX="265.0" layoutY="62.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="32.0" prefWidth="96.0" text="AJOUTER" />
+            <Button fx:id="supprimer" layoutX="265.0" layoutY="139.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="32.0" prefWidth="96.0" text="SUPPRIMER" />
+            <TextField fx:id="recherche" layoutX="34.0" layoutY="87.0" prefHeight="26.0" prefWidth="193.0" promptText="RECHERCHE" />
+         </children>
+      </AnchorPane>
+      <Pane fx:id="blacks" opacity="0.3" prefHeight="802.0" prefWidth="1227.0" style="-fx-background-color: black;" visible="false" />
+      <Pane fx:id="pane_ajout" layoutX="328.0" layoutY="231.0" prefHeight="256.0" prefWidth="553.0" visible="false">
+         <children>
+            <Button fx:id="ajouter2" layoutX="229.0" layoutY="226.0" mnemonicParsing="false" onAction="#Ajouter2" prefHeight="33.0" prefWidth="96.0" style="-fx-background-color: #4dc47d; -fx-text-fill: white; -fx-background-radius: 4;" text="Ajouter">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <VBox layoutX="312.0" layoutY="1.0" prefHeight="240.0" prefWidth="178.0">
+               <children>
+                  <Label>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="descrp" prefHeight="34.0" prefWidth="162.0" promptText="Description">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="qte" prefHeight="34.0" prefWidth="168.0" promptText="quantite" />
+                  <Label>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="61.0" layoutY="1.0" prefHeight="240.0" prefWidth="178.0">
+               <children>
+                  <Label>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="nom" prefHeight="34.0" prefWidth="162.0" promptText="Nom">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="prix" prefHeight="34.0" prefWidth="168.0" promptText="prix">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="catego" prefHeight="26.0" prefWidth="461.0" promptText="Categorie" />
+               </children>
+            </VBox>
+            <Button fx:id="retour" layoutX="122.0" layoutY="226.0" mnemonicParsing="false" onAction="#retour" text="Annuler" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

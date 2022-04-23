@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="629.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterFXMLController">
+   <children>
+      <Text layoutX="229.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AJOUTER UN PRODUIT">
+         <font>
+            <Font name="Calibri Light" size="33.0" />
+         </font>
+      </Text>
+      <TextField fx:id="nom" layoutX="36.0" layoutY="160.0" promptText="Nom" />
+      <TextField fx:id="qte" layoutX="36.0" layoutY="229.0" promptText="Quantité" />
+      <TextField fx:id="prix" layoutX="36.0" layoutY="299.0" promptText="Prix" />
+      <TextField fx:id="descptipn" layoutX="36.0" layoutY="374.0" promptText="Description" />
+      <ChoiceBox fx:id="catego" layoutX="36.0" layoutY="455.0" prefWidth="150.0" />
+      <Button layoutX="446.0" layoutY="455.0" mnemonicParsing="false" onMouseClicked="#ajouter" text="AJOUTER" />
+      <Button layoutX="567.0" layoutY="455.0" mnemonicParsing="false" onMouseClicked="#afficher" text="ANNULER" />
+   </children>
+</AnchorPane>
