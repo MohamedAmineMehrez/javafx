@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherLCFXMLController">
+   <children>
+      <AnchorPane layoutX="-26.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane layoutX="23.0" layoutY="-50.0" prefHeight="400.0" prefWidth="205.0" style="-fx-background-color: #FFF5EE;">
+               <children>
+                  <Button fx:id="ajouterlc" layoutX="24.0" layoutY="208.0" mnemonicParsing="false" onAction="#ajouterlc" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #98FB98;" text="Ajouter" />
+                  <Button fx:id="modifierlc" layoutX="24.0" layoutY="255.0" mnemonicParsing="false" onAction="#modifierlc" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: orange;" text="Modifier" />
+                  <Button fx:id="supprimerlc" layoutX="24.0" layoutY="306.0" mnemonicParsing="false" onAction="#supprimerlc" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: red;" text="Supprimer" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="table_lignecommande" layoutX="247.0" layoutY="72.0" prefHeight="277.0" prefWidth="303.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="col_lignecmd_id" prefWidth="75.0" text="lignecmd_id" />
+            <TableColumn fx:id="col_produit_id" prefWidth="75.0" text="produit_id" />
+            <TableColumn fx:id="col_quantite" prefWidth="75.0" text="quantite" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
