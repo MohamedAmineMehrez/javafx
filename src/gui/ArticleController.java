@@ -6,12 +6,22 @@
 package gui;
 
 import Service.articles_service;
+import Util.MyDB;
+import com.darkprograms.speech.translator.GoogleTranslate;
 import entities.Articles;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,8 +31,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -33,6 +45,8 @@ import javafx.stage.Stage;
  * @author MOUEFEK
  */
 public class ArticleController implements Initializable {
+    Connection connexion = MyDB.getInstance().getConnection();
+    Statement stm ;
 public static int cmd;
     @FXML
     private TableView<Articles> tvarticle;
@@ -48,13 +62,26 @@ public static int cmd;
     private TableColumn<Articles, Date> coldate;
     @FXML
     private TableColumn<Articles, String> colimg;
-    ObservableList list ;
+    ObservableList<Articles>list ;
+    @FXML
+    private Button btndelete;
+    @FXML
+    private Button btnmodifier;
+    @FXML
+    private Button btninsert;
+    @FXML
+    private Button btwreturn;
+    @FXML
+    private TextField tfsearch;
+    @FXML
+    private Button btntraduire;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        list = FXCollections.observableArrayList();
         afficher();
     }    
     
@@ -107,6 +134,7 @@ public static int cmd;
         }
     }    
         
+    @FXML
     public void Select(MouseEvent event){
         int index;
         index = tvarticle.getSelectionModel().getSelectedIndex();
@@ -120,6 +148,41 @@ public static int cmd;
         ps.supprimer(cmd);
         afficher();
     } 
+    
+    @FXML
+        public void searchRole(){      
+    list.clear();
+    String sql = "Select * from articles where titre like '%"+tfsearch.getText()+"%'"
+    + " UNION Select * from articles where description like '%"+tfsearch.getText()+"%'";
+                          
+    try {
+              
+        PreparedStatement pst = connexion.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                System.out.println(rs.getInt("id")+rs.getString("titre")+rs.getString("description"));
+                list.add(new Articles(rs.getInt("id"),rs.getInt("nom_jeux_id"),rs.getString("titre"),rs.getString("description")));
+            }
+            tvarticle.setItems(list);
+
+        }catch (SQLException ex) {
+            Logger.getLogger(CommentController.class.getName()).log(Level.SEVERE, null, ex);}
+    }
+
+    @FXML
+    private void traduire(ActionEvent event) throws IOException {
+        btntraduire.setText(GoogleTranslate.translate("en",btntraduire.getText()));
+        btndelete.setText(GoogleTranslate.translate("en",btndelete.getText()));
+        btninsert.setText(GoogleTranslate.translate("en",btninsert.getText()));
+        btnmodifier.setText(GoogleTranslate.translate("en",btnmodifier.getText()));
+        colid.setText(GoogleTranslate.translate("en",colid.getText()));
+        coldate.setText(GoogleTranslate.translate("en",coldate.getText()));
+        coldescription.setText(GoogleTranslate.translate("en",coldescription.getText()));
+        colimg.setText(GoogleTranslate.translate("en",colimg.getText()));
+        colnomjeu.setText(GoogleTranslate.translate("en",colnomjeu.getText()));
+        coltitre.setText(GoogleTranslate.translate("en",coltitre.getText()));
+        btwreturn.setText(GoogleTranslate.translate("en",btwreturn.getText()));
+    }
     
     
 }

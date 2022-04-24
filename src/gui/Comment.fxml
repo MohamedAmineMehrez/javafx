@@ -17,12 +17,17 @@
       </Label>
       <TableView fx:id="tvcomment" layoutX="428.0" layoutY="133.0" onMouseClicked="#Select" prefHeight="396.0" prefWidth="536.0">
         <columns>
-          <TableColumn fx:id="colid" prefWidth="101.0" text="id" />
-          <TableColumn fx:id="colarticle" prefWidth="137.0" text="id_article" />
+          <TableColumn fx:id="colid" minWidth="0.0" prefWidth="0.0" text="id" />
+          <TableColumn fx:id="colarticle" prefWidth="238.0" text="id_article" />
             <TableColumn fx:id="colcomment" prefWidth="297.0" text="Commentaire" />
         </columns>
       </TableView>
+<<<<<<< Updated upstream
       <TextField fx:id="tfsearch" layoutX="71.0" layoutY="289.0" prefHeight="31.0" prefWidth="235.0" />
+=======
+      <TextField fx:id="tfsearch" layoutX="71.0" layoutY="289.0" onKeyPressed="#searchRole" onKeyReleased="#searchRole" prefHeight="31.0" prefWidth="235.0" />
+>>>>>>> Stashed changes
       <Button layoutX="154.0" layoutY="389.0" mnemonicParsing="false" onAction="#Delete" prefHeight="31.0" prefWidth="105.0" text="Supprimer" />
+      <Button fx:id="btnretour" layoutX="39.0" layoutY="514.0" mnemonicParsing="false" onAction="#retourinterface" prefHeight="31.0" prefWidth="86.0" text="Retour" />
    </children>
 </AnchorPane>

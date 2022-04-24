@@ -7,6 +7,7 @@ package gui;
 
 import Service.articles_service;
 import Util.MyDB;
+import com.darkprograms.speech.translator.GoogleTranslate;
 import entities.Articles;
 import java.io.IOException;
 import java.net.URL;
@@ -33,8 +34,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -61,6 +64,20 @@ public class AjouterArticleController implements Initializable {
     articles_service ars = new articles_service();
     @FXML
     private Button btnajouter;
+    @FXML
+    private Label titrelabel;
+    @FXML
+    private Label jeulabel;
+    @FXML
+    private Label labelaj;
+    @FXML
+    private Label desclabel;
+    @FXML
+    private Label datelabel;
+    @FXML
+    private Label labelimg;
+    @FXML
+    private Button btntraduire;
     
     /**
      * Initializes the controller class.
@@ -149,7 +166,23 @@ public class AjouterArticleController implements Initializable {
             a.show();}
 
     }
-    
-     
+
+    @FXML
+    private void traduire(ActionEvent event) {
+    try {         
+        titrelabel.setText(GoogleTranslate.translate("en",titrelabel.getText()));
+        btntraduire.setText(GoogleTranslate.translate("en",btntraduire.getText()));
+        labelaj.setText(GoogleTranslate.translate("en",labelaj.getText()));
+        labelimg.setText(GoogleTranslate.translate("en",labelimg.getText()));
+        desclabel.setText(GoogleTranslate.translate("en",desclabel.getText()));
+        datelabel.setText(GoogleTranslate.translate("en",datelabel.getText()));
+        jeulabel.setText(GoogleTranslate.translate("en",jeulabel.getText()));
+        btnajouter.setText(GoogleTranslate.translate("en",btnajouter.getText()));
+        btnannuler.setText(GoogleTranslate.translate("en",btnannuler.getText()));
+                                        
+        } catch (IOException ex) {
+        Logger.getLogger(AjouterArticleController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
     
 }

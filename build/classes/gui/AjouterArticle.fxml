@@ -11,36 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="454.0" prefWidth="893.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterArticleController">
    <children>
-      <VBox layoutX="36.0" layoutY="99.0" prefHeight="313.0" prefWidth="103.0" spacing="15.0">
-         <children>
-            <Label text="Titre">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label text="Description">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label text="Date">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label text="Image">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label text="Jeu">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-      <Label layoutX="214.0" layoutY="14.0" text="Ajouter un article">
+      <Label fx:id="labelaj" layoutX="214.0" layoutY="14.0" text="Ajouter un article">
          <font>
             <Font name="System Bold" size="33.0" />
          </font>
@@ -64,5 +35,31 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Button fx:id="btntraduire" layoutX="23.0" layoutY="412.0" mnemonicParsing="false" onAction="#traduire" text="Traduire" />
+      <Label fx:id="titrelabel" layoutX="45.0" layoutY="99.0" prefHeight="27.0" prefWidth="64.0" text="titre">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="desclabel" layoutX="44.0" layoutY="150.0" prefHeight="27.0" prefWidth="123.0" text="Description">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelimg" layoutX="43.0" layoutY="227.0" prefHeight="27.0" prefWidth="70.0" text="Image">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="datelabel" layoutX="43.0" layoutY="189.0" prefHeight="27.0" prefWidth="64.0" text="Date">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="jeulabel" layoutX="48.0" layoutY="270.0" text="Jeu">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

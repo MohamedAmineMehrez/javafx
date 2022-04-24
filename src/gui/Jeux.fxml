@@ -41,7 +41,7 @@
             <TextField fx:id="tfimg" />
          </children>
       </VBox>
-      <Button fx:id="btninsert" layoutX="37.0" layoutY="293.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="39.0" prefWidth="96.0" text="Insert">
+      <Button fx:id="btninsert" layoutX="37.0" layoutY="293.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="39.0" prefWidth="96.0" text="Ajouter">
          <font>
             <Font size="18.0" />
          </font>
@@ -56,7 +56,7 @@
             </Lighting>
          </effect>
       </Button>
-      <Button fx:id="btnupdate" layoutX="188.0" layoutY="293.0" mnemonicParsing="false" onAction="#update" prefHeight="39.0" prefWidth="96.0" text="Update">
+      <Button fx:id="btnupdate" layoutX="164.0" layoutY="293.0" mnemonicParsing="false" onAction="#update" prefHeight="39.0" prefWidth="120.0" text="mise a jour">
          <font>
             <Font size="18.0" />
          </font>
@@ -71,6 +71,6 @@
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="tfreturn" layoutX="53.0" layoutY="409.0" mnemonicParsing="false" onAction="#RetrunInt" prefHeight="31.0" prefWidth="96.0" text="Return" />
+      <Button fx:id="tfreturn" layoutX="53.0" layoutY="409.0" mnemonicParsing="false" onAction="#RetrunInt" prefHeight="31.0" prefWidth="96.0" text="Retourner" />
    </children>
 </AnchorPane>

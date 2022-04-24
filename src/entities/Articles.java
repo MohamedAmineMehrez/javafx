@@ -32,6 +32,18 @@ public class Articles {
         this.image = image;
     }
 
+    public Articles(int id, int nom_jeux_id, String titre, String description) {
+        this.id = id;
+        this.nom_jeux_id = nom_jeux_id;
+        this.titre = titre;
+        this.description = description;
+    }
+
+  
+
+  
+    
+
     public Articles() {
     }
 

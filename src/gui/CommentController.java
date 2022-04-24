@@ -7,15 +7,26 @@ package gui;
 
 import Service.articles_service;
 import Service.comment_service;
+import Util.MyDB;
 import entities.Comment;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -29,6 +40,8 @@ import javafx.scene.input.MouseEvent;
  * @author MOUEFEK
  */
 public class CommentController implements Initializable {
+    Connection connexion = MyDB.getInstance().getConnection();
+    Statement stm ;
     public static int cmd;
     @FXML
     private TableView<Comment> tvcomment;
@@ -40,13 +53,16 @@ public class CommentController implements Initializable {
     private TableColumn<Comment, String> colcomment;
     @FXML
     private TextField tfsearch;
-    ObservableList list ;
+    ObservableList<Comment>list ;
+    @FXML
+    private Button btnretour;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        list = FXCollections.observableArrayList();
         afficher();
     }    
     
@@ -76,6 +92,7 @@ public class CommentController implements Initializable {
         afficher();
     }
     
+<<<<<<< Updated upstream
     
     
     
@@ -86,4 +103,36 @@ public class CommentController implements Initializable {
     
     
     
+=======
+    @FXML
+    public void searchRole(){         
+    list.clear();
+    String sql = "Select * from comment where commentaire like '%"+tfsearch.getText()+"%'";
+                          
+    try {
+              
+        PreparedStatement pst = connexion.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                System.out.println(rs.getInt("id")+rs.getString("commentaire"));
+                list.add(new Comment(rs.getInt("id"),rs.getString("commentaire")));
+            }
+            tvcomment.setItems(list);
+
+        }catch (SQLException ex) {
+            Logger.getLogger(CommentController.class.getName()).log(Level.SEVERE, null, ex);}
+    }   
+
+    @FXML
+    private void retourinterface(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TestInterface.fxml"));
+            Parent root = loader.load();
+            TestInterfaceController controller = loader.getController();
+            tvcomment.getScene().setRoot(root);
+        } catch (IOException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+>>>>>>> Stashed changes
 }

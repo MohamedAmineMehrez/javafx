@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/MOUEFEK/OneDrive/Documents/GitHub/javafx/src/Service/comment_service.java</file>
             <file>file:/C:/Users/MOUEFEK/OneDrive/Documents/GitHub/javafx/src/gui/CommentController.java</file>
+=======
+            <file>file:/C:/Users/MOUEFEK/OneDrive/Bureau/github%20backup/javafx/src/gui/AjouterArticleController.java</file>
+            <file>file:/C:/Users/MOUEFEK/OneDrive/Bureau/github%20backup/javafx/src/gui/ArticleController.java</file>
+            <file>file:/C:/Users/MOUEFEK/OneDrive/Bureau/github%20backup/javafx/src/entities/Articles.java</file>
+            <file>file:/C:/Users/MOUEFEK/OneDrive/Bureau/github%20backup/javafx/src/test/NewFXMain.java</file>
+            <file>file:/C:/Users/MOUEFEK/OneDrive/Bureau/github%20backup/javafx/src/gui/TestInterfaceController.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
