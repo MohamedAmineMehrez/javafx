@@ -39,8 +39,6 @@ public class CommentController implements Initializable {
     @FXML
     private TableColumn<Comment, String> colcomment;
     @FXML
-    private Button btnchercher;
-    @FXML
     private TextField tfsearch;
     ObservableList list ;
 
@@ -62,6 +60,7 @@ public class CommentController implements Initializable {
         colcomment.setCellValueFactory(new PropertyValueFactory<>("commentaire")); 
     }
      
+    @FXML
       public void Select(MouseEvent event){
         int index;
         index = tvcomment.getSelectionModel().getSelectedIndex();
@@ -77,11 +76,6 @@ public class CommentController implements Initializable {
         afficher();
     }
     
-    @FXML
-    private void SearchRec(MouseEvent event) {
-        comment_service ic = new comment_service();
-        ic.search(tfsearch.getText());
-    }
     
     
     
