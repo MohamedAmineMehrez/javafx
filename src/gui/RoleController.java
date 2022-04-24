@@ -6,11 +6,16 @@
 package gui;
 
 import Service.RoleService;
+import Util.MyDB;
 import entities.Role;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import static java.util.Collections.list;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -40,6 +45,8 @@ import javafx.scene.input.MouseEvent;
  * @author EXTRA
  */
 public class RoleController implements Initializable {
+     Connection connexion=MyDB.getInstance().getConnection();
+    Statement stm;
 public static int cmd;
  RoleService ps = new RoleService();
     @FXML
@@ -56,12 +63,16 @@ public static int cmd;
     private Button btnSupprimer;
     @FXML
     private Button btnModifier;
-    ObservableList list ;
+    ObservableList <Role> list ;
+    @FXML
+    private TextField recherchetf;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        list = FXCollections.observableArrayList();
+        
         afficher();
        
        
@@ -150,4 +161,29 @@ public static int cmd;
         Logger.getLogger(RoleController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
+    @FXML
+     public void searchRole(){
+        
+          
+                
+           list.clear();
+           String sql = "Select * from role where libille like '%"+recherchetf.getText()+"%'";
+           
+                      
+          try {
+              
+               
+                PreparedStatement pst = connexion.prepareStatement(sql);
+                     ResultSet rs = pst.executeQuery();
+                    while(rs.next()){
+                        System.out.println(""+rs.getString("libille"));
+                        list.add(new Role(rs.getInt("id"),rs.getString("libille")));
+                    }
+                    tvRole.setItems(list);
+
+          }catch (SQLException ex) {
+              Logger.getLogger(RoleController.class.getName()).log(Level.SEVERE, null, ex);}
+           }
+         
+        
 }

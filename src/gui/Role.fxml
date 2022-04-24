@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -19,7 +20,7 @@
             <Image url="@product-9.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tvRole" layoutX="363.0" layoutY="50.0" onMouseClicked="#Select" prefHeight="245.0" prefWidth="278.0" style="-fx-color: #ffcccb;">
+      <TableView fx:id="tvRole" layoutX="366.0" layoutY="106.0" onKeyPressed="#searchRole" onKeyReleased="#searchRole" onMouseClicked="#Select" prefHeight="245.0" prefWidth="278.0" style="-fx-color: #ffcccb;">
         <columns>
           <TableColumn fx:id="colid" prefWidth="84.0" text="ID" />
             <TableColumn fx:id="collibille" prefWidth="193.0" text="Libelle" />
@@ -62,5 +63,10 @@
          </font>
       </Label>
       <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#Retour" text="Retour" />
+      <TextField fx:id="recherchetf" alignment="CENTER" layoutX="431.0" layoutY="45.0" onKeyPressed="#searchRole" onKeyReleased="#searchRole">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
    </children>
 </AnchorPane>
